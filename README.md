@@ -22,6 +22,8 @@ and run the following command:
 
 `npm start`
 
+downloads all the dependencies for the backend and runs the server on [http://localhost:5000](http://localhost:5000)
+
 ## App Extra Features
 For providing clarity, all features requested by the assignment have been met (eg. dashboard, searchbar, summary table, etc.). The purpose of this section is to provide features that were otherwise not mandatory but rather to showcase my skills. 
 
