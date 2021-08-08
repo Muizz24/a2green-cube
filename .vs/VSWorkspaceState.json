@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\server",
-    "\\src"
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\SearchBar"
   ],
-  "SelectedNode": "\\src\\App.js",
+  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }
