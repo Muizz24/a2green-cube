@@ -35,6 +35,7 @@ function App() {
       setMaxPage(response.data.maxPage)
       setIsLoaded(true)
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // for whenever the user searches for something new
