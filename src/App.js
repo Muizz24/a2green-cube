@@ -31,10 +31,10 @@ function App() {
     fetch(`/data/${page}`)
       .then(response => response.json())
       .then(response => {
-      console.log(response)
-      setPageNatedItems(response.data.data)
-      setFields(response.data.fields)
-      setMaxPage(response.data.maxPage)
+      console.log(response.data)
+      setPageNatedItems(response.data)
+      setFields(response.fields)
+      setMaxPage(response.maxPage)
       setIsLoaded(true)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -49,7 +49,7 @@ function App() {
       fetch(`/data/search/name/${searchVal}`)
         .then(response => response.json())
         .then(response => {
-        setSearchRes(response.data.data)
+        setSearchRes(response.data)
         setSearchLoaded(true)
       })
     }
@@ -62,7 +62,7 @@ function App() {
     fetch(`/data/${page}`)
       .then(response => response.json())
       .then(response => {
-      setPageNatedItems(response.data.data)
+      setPageNatedItems(response.data)
       setIsLoaded(true)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -74,8 +74,8 @@ function App() {
     fetch(`/data/summary/${daysAgo}`)
       .then(response => response.json())
       .then(response => {
-      console.log(response.data.data)
-      setSummaryValues(response.data.data)
+      console.log(response.data)
+      setSummaryValues(response.data)
       setIsLoaded(true)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -126,7 +126,7 @@ function App() {
     fetch(`/data/user/${index}`)
       .then(response => response.json())
       .then(response => {
-      setPageNatedItems(response.data.data)
+      setPageNatedItems(response.data)
       setIsLoaded(true)
     })
   }
