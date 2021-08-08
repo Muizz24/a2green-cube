@@ -43,4 +43,5 @@ The search bar comes with its own useEffect, useState, and useRef hooks to hide 
 
 ## Video Demo Link
 **Please Note: The sound in the first few seconds of the video is really loud but later on normalizes!**
-` [video link](https://www.dropbox.com/s/q41ecu8wwb4g6np/React%20App%20-%20Google%20Chrome%202021-08-08%2009-50-16.mp4?dl=0) `
+
+[video link](https://www.dropbox.com/s/q41ecu8wwb4g6np/React%20App%20-%20Google%20Chrome%202021-08-08%2009-50-16.mp4?dl=0)
