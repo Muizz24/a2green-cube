@@ -89,7 +89,6 @@ app.get('/data/summary/:days', (req, res) => {
 
     if (dayDifference <= daysLimit) {
       if (!dataBasedOnSearch[row.interest]) {
-        console.log("adding new row")
         dataBasedOnSearch[row.interest] = 1
       } else {
         dataBasedOnSearch[row.interest] = dataBasedOnSearch[row.interest] + 1
