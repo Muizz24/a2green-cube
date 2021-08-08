@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import { useState } from 'react';
 import { StyledSearchBar } from '.'
 import { SearchIcon } from '@heroicons/react/outline'
 

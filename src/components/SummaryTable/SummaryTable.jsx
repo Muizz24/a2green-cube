@@ -1,7 +1,5 @@
 import { StyledSummaryTable } from '.'
 
-import HorizontalBarGraph from '@chartiful/react-horizontal-bar-graph'
-
 const SummaryTable = ({ content, days }) => {
   const contentKeys = Object.keys(content)
 

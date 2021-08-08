@@ -1,6 +1,6 @@
 import { StyledLoadingWidget } from '.'
 
-const LoadingWidget = ({  }) => {
+const LoadingWidget = () => {
   return (
     <StyledLoadingWidget >
       Loading up Dashboard...
