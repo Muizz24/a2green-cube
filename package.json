@@ -2,15 +2,16 @@
   "name": "server",
   "version": "1.0.0",
   "description": "backend server for API calls",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "server": "nodemon index.js"
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "start": "nodemon server.js"
   },
   "author": "Muizz",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "path": "^0.12.7"
   }
 }
