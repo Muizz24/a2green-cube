@@ -37,15 +37,6 @@ function App() {
     })
   }, [])
 
-  // for whenever the user navigates to a new page
-  useEffect(() => {
-    setIsLoaded(false)
-    axios.get(`/data/${page}`).then(response => {
-      setPageNatedItems(response.data.data)
-      setIsLoaded(true)
-    })
-  },[page])
-
   // for whenever the user searches for something new
   useEffect(() => {
     if (searchVal === "") {
@@ -57,8 +48,18 @@ function App() {
         setSearchLoaded(true)
       })
     }
-    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchVal])
+
+  // for whenever the user navigates to a new page
+  useEffect(() => {
+    setIsLoaded(false)
+    axios.get(`/data/${page}`).then(response => {
+      setPageNatedItems(response.data.data)
+      setIsLoaded(true)
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page])
 
   // for whenever the user switches to the summary dashboard
   useEffect(() => {
@@ -68,7 +69,7 @@ function App() {
       setSummaryValues(response.data.data)
       setIsLoaded(true)
     })
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [daysAgo])
 
   // changing the pages buttons
