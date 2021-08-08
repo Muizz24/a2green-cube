@@ -4,6 +4,7 @@ const StyledSearchBar = styled.div`
   color: #191919;
 
   .titleText {
+    width: 25%;
     color: white;
     font-size: 16px;
     font-weight: 600;
@@ -16,6 +17,14 @@ const StyledSearchBar = styled.div`
     height: auto;
     position: relative;
     overflow: visible;
+  }
+
+  .headerSearch {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   .icon {

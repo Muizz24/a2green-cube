@@ -14,8 +14,10 @@ function App() {
 
   // variables for search values
   const [searchVal, setSearchVal] = useState("")
+  const [searchOption, setSearchOption] = useState("name")
   const [searchRes, setSearchRes] = useState([])
   const [searchLoaded, setSearchLoaded] = useState(false)
+  const [showSearchResult, setShowSearchResult] = useState(false)
 
   // variables for dashboard
   const [fields, setFields] = useState([])
@@ -31,11 +33,10 @@ function App() {
     fetch(`/data/${page}`)
       .then(response => response.json())
       .then(response => {
-      console.log(response.data)
-      setPageNatedItems(response.data)
-      setFields(response.fields)
-      setMaxPage(response.maxPage)
-      setIsLoaded(true)
+        setPageNatedItems(response.data)
+        setFields(response.fields)
+        setMaxPage(response.maxPage)
+        setIsLoaded(true)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -46,15 +47,15 @@ function App() {
       setSearchRes([])
     } else {
       setSearchLoaded(false)
-      fetch(`/data/search/name/${searchVal}`)
+      fetch(`/data/search/${searchOption}/${searchVal}`)
         .then(response => response.json())
         .then(response => {
-        setSearchRes(response.data)
-        setSearchLoaded(true)
+          setSearchRes(response.data)
+          setSearchLoaded(true)
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchVal])
+  }, [searchVal, searchOption])
 
   // for whenever the user navigates to a new page
   useEffect(() => {
@@ -62,8 +63,8 @@ function App() {
     fetch(`/data/${page}`)
       .then(response => response.json())
       .then(response => {
-      setPageNatedItems(response.data)
-      setIsLoaded(true)
+        setPageNatedItems(response.data)
+        setIsLoaded(true)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page])
@@ -74,9 +75,8 @@ function App() {
     fetch(`/data/summary/${daysAgo}`)
       .then(response => response.json())
       .then(response => {
-      console.log(response.data)
-      setSummaryValues(response.data)
-      setIsLoaded(true)
+        setSummaryValues(response.data)
+        setIsLoaded(true)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [daysAgo])
@@ -123,11 +123,13 @@ function App() {
   const getUser = async (index) => {
     setIsLoaded(false)
     setShowSummaryTable(false)
+    setShowSearchResult(false)
     fetch(`/data/user/${index}`)
       .then(response => response.json())
       .then(response => {
-      setPageNatedItems(response.data)
-      setIsLoaded(true)
+        setPageNatedItems(response.data)
+        setIsLoaded(true)
+        setShowSearchResult(true)
     })
   }
 
@@ -139,15 +141,22 @@ function App() {
     <div className="MainContainer">
       <span className="App-header">DashBoard</span>
       <div className="dashBoardHeader">
-        <SearchBar searchCallback={setSearchVal} searchHits={searchRes} searchLoaded={searchLoaded} findCallback={getUser} />
+        <SearchBar optionCallback={setSearchOption} searchCallback={setSearchVal} searchHits={searchRes} searchLoaded={searchLoaded} findCallback={getUser} />
         <button className="switchTablesBtn" onClick={e => setShowSummaryTable(prevState => !prevState)}> {showSummaryTable ? "Show Dashboard" : "Show Summary Table"}</button>
       </div>
       <div className="pagesContainer">
         <div className="pageBtnsContainer">
-          <span className="pagesText">{showSummaryTable ? "Days" : "Pages"}: </span>
-          {isLoaded ? showDaysOrPages : <></>}
+          {showSearchResult ? <button className="pageBtn" onClick={
+            e => {
+              e.preventDefault();
+              setShowSearchResult(false)
+              setPage(page + 1)
+            }
+          }>Back to Dashboard</button> : <></>}
+          <span className="pagesText">{!showSearchResult ? (showSummaryTable ? "Days:" : "Pages:") : ""} </span>
+          {isLoaded && !showSearchResult ? showDaysOrPages : <></>}
         </div>
-        <span className="pagesText">{showSummaryTable ? "" : "Page " + (page + 1)}</span>
+        <span className="pagesText">{showSummaryTable || showSearchResult ? "" : "Page " + (page + 1)}</span>
       </div>
       <div className="dashBoardBody">
         {isLoaded ? TableToShow : <LoadingWidget />}

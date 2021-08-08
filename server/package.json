@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "start": "nodemon index.js"
+    "start": "npm i && nodemon index.js"
   },
   "author": "Muizz",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "fuse.js": "^6.4.6",
     "nodemon": "^2.0.12",
     "path": "^0.12.7"
   }
