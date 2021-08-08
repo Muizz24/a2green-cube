@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with my DashBoard
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -8,63 +8,42 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Downloads all dependencies and runs the front-end of the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+To run the backend portion of the app, you will need to cd into the server folder:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`cd server`
 
-### `npm run build`
+and run the following command:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`npm start`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+downloads all the dependencies for the backend and runs the server on [http://localhost:5000](http://localhost:5000)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## App Extra Features
+For providing clarity, all features requested by the assignment have been met (eg. dashboard, searchbar, summary table, etc.). The purpose of this section is to provide features that were otherwise not mandatory but rather to showcase my skills. 
 
-### `npm run eject`
+#### Fuzzy Search!
+app uses Fuse.js on the back-end to find close accuracies of values that may have been mistyped by the user which provides a better UX experience for the client. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Pagenation!
+front-end portion of the app uses a useEffect hook followed with a useState hook to make sure to only fetch 10 values per page to reduce time taken to load the whole page on initialization of lots of data. This enables an overall better UI/UX experience for users navigating through the page as it prevents lag and allows for easier navigation.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Day specific Summary Table!
+Table holds all the possible leads in the past x days which can be adjusted to another set of days based on the select menu. This provides users with a broadder understanding of their summary data based on the dashboard.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Search for different table fields!
+Search bar has a drop down that allows the user to modify the field they want to look into for searching. eg the user can look for someone based on their name, company or title. This allows users to help pinpoint their search results to what they were looking for.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Smart Search bar!
+The search bar comes with its own useEffect, useState, and useRef hooks to hide search results on no input, when user clicks away from the search bar, or when a value is selected. This enables an overall better UI/UX experience for users navigating through the page.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Video Demo Link
+**Please Note: The sound in the first few seconds of the video is really loud but later on normalizes!**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[video link](https://www.dropbox.com/s/q41ecu8wwb4g6np/React%20App%20-%20Google%20Chrome%202021-08-08%2009-50-16.mp4?dl=0)
